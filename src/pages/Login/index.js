@@ -136,7 +136,7 @@ export default function Login() {
           </Hidden>
           {/* Quando ha uma GRID dentro de GRID a pai tem que ser container "SEMPRE" */}
           <Grid xs={12} sm={7} container justify="center" alignContent="center">
-            <Grid xs={12} sm={9} md={8} lg={6} xl={4} className="block-login">
+            <Grid xs={12} sm={10} md={10} lg={6} xl={4} className="block-login">
               {/* Mensagem */}
               <Grid>
                 <Box mt={1} mb={3} color="#1C1C1C">
