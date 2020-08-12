@@ -14,22 +14,47 @@ body {
 
 body {
   font: 400 14px Roboto, sans-serif;
-  background: #f1f2f5;
+  background: #f1f1f1;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .bg-green {
   background-image: url("../../assets/signup-bk.jpeg");
+  background-size: cover;
   height: 100vh;
 }
 
+.bg-green-small {
+  background-image: url("../../assets/signup-bk.jpeg");
+  height: 84px;
+  width: 100%;
+}
+
+.logo {
+  padding: 8px 16px;
+}
+
+.bg-image {
+  margin-top: 80px;
+  width: 100%;
+}
+
+.bg-image-small {
+  width: 100%;
+}
+
 .block-login {
-  padding: 32px 54px;
+  padding: 28px 48px;
   margin-top: 35px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   position: relative;
+}
+@media (max-width: 800px) {
+  .block-login {
+    padding: 22px 30px;
+  }
 }
 
 .button-login span {

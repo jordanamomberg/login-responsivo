@@ -68,6 +68,27 @@ export default function Login() {
 
           {/* Card */}
           {/* QUANDO FOR MD pra baixo ele vai sumir o verde! por exemplo */}
+          {/* <Grid>
+            <Hidden lgUp>Jordanao</Hidden>
+            <Hidden mdUp>Jordana</Hidden>
+            <Hidden xsDown>Jordaninha</Hidden>
+          </Grid> */}
+
+          <Hidden mdUp>
+            <Grid
+                xs={12}
+                sm={12}
+                container
+                alignItems="center"
+                justify="center"
+                className="bg-green-small"
+              >
+                <Grid className="logo">
+                  <img src={logo} alt="Compre Aqui" className="bg-image-small" />
+                </Grid>
+              </Grid> 
+          </Hidden>
+
           <Hidden smDown>
             <Grid
               xs={12}
@@ -76,15 +97,14 @@ export default function Login() {
               className="bg-green"
               direction="column"
               alignItems="center"
-              justify="center"
             >
-              <Grid>
+              <Grid className="logo">
                 <img src={logo} alt="Compre Aqui" className="bg-image" />
               </Grid>
 
               {/* QUADRADO DE FORA */}
               <Grid>
-                <Box mt={10}>
+                <Box mt={6}>
                   <Box>
                     <Grid container item alignItems="center" className="textos">
                       <img
@@ -110,14 +130,13 @@ export default function Login() {
                       <Grid className="image-icons">Seguro</Grid>
                     </Grid>
                   </Box>
-
                 </Box>
               </Grid>
             </Grid>
           </Hidden>
           {/* Quando ha uma GRID dentro de GRID a pai tem que ser container "SEMPRE" */}
           <Grid xs={12} sm={7} container justify="center" alignContent="center">
-            <Grid md={7} xs={12} className="block-login">
+            <Grid xs={12} sm={9} md={8} lg={6} xl={4} className="block-login">
               {/* Mensagem */}
               <Grid>
                 <Box mt={1} mb={3} color="#1C1C1C">
@@ -283,7 +302,7 @@ export default function Login() {
               justify="flex-end"
               alignItems="center"
             >
-              <Box mt={6} mb={-5}>
+              <Box mt={4}>
                 <img
                   src={logoWls}
                   alt="Logo da Empresa"
