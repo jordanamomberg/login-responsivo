@@ -27,6 +27,9 @@ import { withStyles } from "@material-ui/core/styles";
 
 import logo from "../../assets/logo.png";
 import logoWls from "../../assets/logo-wls-horizontal.png";
+import puzzle from "../../assets/puzzle.svg";
+import speed from "../../assets/speed.svg";
+import lock from "../../assets/lock.svg";
 
 export default function Login() {
   const [values, setValues] = React.useState({
@@ -71,13 +74,45 @@ export default function Login() {
               sm={5}
               container
               className="bg-green"
+              direction="column"
+              alignItems="center"
               justify="center"
             >
               <Grid>
                 <img src={logo} alt="Compre Aqui" className="bg-image" />
               </Grid>
 
-              <Grid> </Grid>
+              {/* QUADRADO DE FORA */}
+              <Grid>
+                <Box mt={10}>
+                  <Box>
+                    <Grid container item alignItems="center" className="textos">
+                      <img
+                        src={puzzle}
+                        alt="Quebra-cabeça"
+                        height={64}
+                        width={64}
+                      />
+                      <Grid className="image-icons">Fácil</Grid>
+                    </Grid>
+                  </Box>
+
+                  <Box mt={8}>
+                    <Grid container item alignItems="center" className="textos">
+                      <img src={speed} alt="Foguete" height={64} width={64} />
+                      <Grid className="image-icons">Rápido</Grid>
+                    </Grid>
+                  </Box>
+
+                  <Box mt={8}>
+                    <Grid container item alignItems="center" className="textos">
+                      <img src={lock} alt="Cadeado" height={64} width={64} />
+                      <Grid className="image-icons">Seguro</Grid>
+                    </Grid>
+                  </Box>
+
+                </Box>
+              </Grid>
             </Grid>
           </Hidden>
           {/* Quando ha uma GRID dentro de GRID a pai tem que ser container "SEMPRE" */}
@@ -248,11 +283,11 @@ export default function Login() {
               justify="flex-end"
               alignItems="center"
             >
-              <Box mt={8}>
+              <Box mt={6} mb={-5}>
                 <img
                   src={logoWls}
                   alt="Logo da Empresa"
-                  width={180}
+                  width={200}
                   height={50}
                   className="logo-wls"
                 />
