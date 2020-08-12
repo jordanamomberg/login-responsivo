@@ -18,9 +18,16 @@ body {
 }
 
 .bg-green {
-  background-color: #47b062;
+  background-image: url("../../assets/signup-bk.jpeg");
   height: 100vh;
 }
+
+.bg-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .block-login {
   padding: 32px 54px;
   margin-top: 35px;
