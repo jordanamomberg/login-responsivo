@@ -26,7 +26,7 @@ body {
 }
 
 .bg-green-small {
-  background-image: url("../../assets/signup-bk.jpeg");
+  background-color: #47b062;
   height: 84px;
   width: 100%;
 }
@@ -36,7 +36,6 @@ body {
 }
 
 .bg-image {
-  margin-top: 80px;
   width: 100%;
 }
 
@@ -53,9 +52,28 @@ body {
   border-radius: 5px;
   position: relative;
 }
+
 @media (max-width: 800px) {
   .block-login {
     padding: 22px 30px;
+  }
+}
+
+@media (max-width: 400px) {
+  .block-login {
+    padding: 22px 30px;
+  }
+  .bg-image-small {
+    height: 50px;
+  }
+}
+
+@media (max-width: 280px) {
+  .block-login {
+    padding: 22px 30px;
+  }
+  .bg-image-small {
+    height: 40px;
   }
 }
 

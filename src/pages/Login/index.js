@@ -97,6 +97,7 @@ export default function Login() {
               className="bg-green"
               direction="column"
               alignItems="center"
+              justify="center"
             >
               <Grid className="logo">
                 <img src={logo} alt="Compre Aqui" className="bg-image" />
@@ -136,7 +137,7 @@ export default function Login() {
           </Hidden>
           {/* Quando ha uma GRID dentro de GRID a pai tem que ser container "SEMPRE" */}
           <Grid xs={12} sm={7} container justify="center" alignContent="center">
-            <Grid xs={12} sm={10} md={10} lg={6} xl={4} className="block-login">
+            <Grid xs={12} sm={10} md={10} lg={7} xl={6} className="block-login">
               {/* Mensagem */}
               <Grid>
                 <Box mt={1} mb={3} color="#1C1C1C">
@@ -302,7 +303,7 @@ export default function Login() {
               justify="flex-end"
               alignItems="center"
             >
-              <Box mt={4}>
+              <Box mt={3}>
                 <img
                   src={logoWls}
                   alt="Logo da Empresa"
