@@ -31,7 +31,20 @@ import puzzle from "../../assets/puzzle.svg";
 import speed from "../../assets/speed.svg";
 import lock from "../../assets/lock.svg";
 
+import {auth} from 'configs/firebase';
+
 export default function Login() {
+  
+  
+
+  async function onSubmit() {
+    await auth.signInWithEmailAndPassword("email@email.com", "12345678");
+    const token = await auth.currentUser.getIdToken(true);
+    console.log(token)
+  }
+
+
+
   const [values, setValues] = React.useState({
     showPassword: false,
   });
@@ -63,7 +76,7 @@ export default function Login() {
   return (
     <form>
       <>
-        <Grid container justify="center" xs={12}>
+        <Grid item container justify="center" xs={12}>
           {/* Background Verde */}
 
           {/* Card */}
@@ -76,12 +89,14 @@ export default function Login() {
 
           <Hidden mdUp>
             <Grid
+                item
                 xs={12}
                 sm={12}
                 container
                 alignItems="center"
                 justify="center"
                 className="bg-green-small"
+                
               >
                 <Grid className="logo">
                   <img src={logo} alt="Compre Aqui" className="bg-image-small" />
@@ -91,6 +106,7 @@ export default function Login() {
 
           <Hidden smDown>
             <Grid
+              item
               xs={12}
               sm={5}
               container
@@ -136,10 +152,10 @@ export default function Login() {
             </Grid>
           </Hidden>
           {/* Quando ha uma GRID dentro de GRID a pai tem que ser container "SEMPRE" */}
-          <Grid xs={12} sm={7} container justify="center" alignContent="center">
-            <Grid xs={12} sm={10} md={10} lg={7} xl={6} className="block-login">
+          <Grid item xs={12} sm={7} container justify="center" alignContent="center">
+            <Grid item xs={12} sm={10} md={10} lg={7} xl={6} className="block-login">
               {/* Mensagem */}
-              <Grid>
+              <Grid >
                 <Box mt={1} mb={3} color="#1C1C1C">
                   <Typography variant="h5">Olá! Seja Bem-vindo.</Typography>
                 </Box>
@@ -264,8 +280,9 @@ export default function Login() {
                   color="primary"
                   size="large"
                   fullWidth
-                  type="submit"
+                  type="button"
                   className="button-login"
+                  onClick={() => onSubmit()}
                 >
                   Entrar
                 </Button>
