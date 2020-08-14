@@ -30,20 +30,24 @@ import logoWls from "../../assets/logo-wls-horizontal.png";
 import puzzle from "../../assets/puzzle.svg";
 import speed from "../../assets/speed.svg";
 import lock from "../../assets/lock.svg";
+import api from "services/Api";
 
-import {auth} from 'configs/firebase';
+// import {auth} from 'configs/firebase';
 
 export default function Login() {
-  
-  
+  // async function onSubmit() {
+  //   await auth.signInWithEmailAndPassword("email@email.com", "12345678");
+  //   const token = await auth.currentUser.getIdToken(true);
+  //   console.log(token)
+  // }
 
-  async function onSubmit() {
-    await auth.signInWithEmailAndPassword("email@email.com", "12345678");
-    const token = await auth.currentUser.getIdToken(true);
-    console.log(token)
+  const onSubmit = () => {
+    const login = api.post("/api/Token/pre_login", {
+      email: "email@email.com",
+      password: "12345678",
+    });
+    console.log(login)
   }
-
-
 
   const [values, setValues] = React.useState({
     showPassword: false,
@@ -89,19 +93,18 @@ export default function Login() {
 
           <Hidden mdUp>
             <Grid
-                item
-                xs={12}
-                sm={12}
-                container
-                alignItems="center"
-                justify="center"
-                className="bg-green-small"
-                
-              >
-                <Grid className="logo">
-                  <img src={logo} alt="Compre Aqui" className="bg-image-small" />
-                </Grid>
-              </Grid> 
+              item
+              xs={12}
+              sm={12}
+              container
+              alignItems="center"
+              justify="center"
+              className="bg-green-small"
+            >
+              <Grid className="logo">
+                <img src={logo} alt="Compre Aqui" className="bg-image-small" />
+              </Grid>
+            </Grid>
           </Hidden>
 
           <Hidden smDown>
@@ -152,10 +155,26 @@ export default function Login() {
             </Grid>
           </Hidden>
           {/* Quando ha uma GRID dentro de GRID a pai tem que ser container "SEMPRE" */}
-          <Grid item xs={12} sm={7} container justify="center" alignContent="center">
-            <Grid item xs={12} sm={10} md={10} lg={7} xl={6} className="block-login">
+          <Grid
+            item
+            xs={12}
+            sm={7}
+            container
+            justify="center"
+            alignContent="center"
+            className="cardLogin"
+          >
+            <Grid
+              item
+              xs={12}
+              sm={10}
+              md={10}
+              lg={7}
+              xl={6}
+              className="block-login"
+            >
               {/* Mensagem */}
-              <Grid >
+              <Grid>
                 <Box mt={1} mb={3} color="#1C1C1C">
                   <Typography variant="h5">Olá! Seja Bem-vindo.</Typography>
                 </Box>
@@ -282,7 +301,7 @@ export default function Login() {
                   fullWidth
                   type="button"
                   className="button-login"
-                  onClick={() => onSubmit()}
+                  onClick={onSubmit}
                 >
                   Entrar
                 </Button>
