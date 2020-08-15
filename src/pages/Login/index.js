@@ -33,8 +33,8 @@ import speed from "../../assets/speed.svg";
 import lock from "../../assets/lock.svg";
 import api from "services/Api";
 
-
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // import {auth} from 'configs/firebase';
 
@@ -53,18 +53,12 @@ export default function Login() {
     },
     onSubmit: async (values) => {
       // Tentar
-      LOADER ()
       try {
-        const usuarioLogado = await api.post("/api/Token/pre_login", values);
-        if(usuarioLogadota )
-        Toast
-        redirecionar o cara pra home
+        await api.post("/api/Token/pre_login", values);
+
+        toast.success("Login efetuado com sucesso!");
       } catch (error) {
-        redireciona pra home
-        da um erro no toast
-        console.log(error);
-      } finally { 
-        
+        toast.error("Erro! Tente novamente");
       }
     },
   });
@@ -99,6 +93,7 @@ export default function Login() {
 
   return (
     <form onSubmit={formFormik.handleSubmit}>
+      
       <>
         <Grid item container justify="center" xs={12}>
           {/* Background Verde */}
