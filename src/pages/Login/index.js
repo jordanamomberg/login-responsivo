@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useFormik } from "formik";
 
 import "./styles.css";
 
@@ -32,22 +33,41 @@ import speed from "../../assets/speed.svg";
 import lock from "../../assets/lock.svg";
 import api from "services/Api";
 
+
+import { toast } from "react-toastify";
+
 // import {auth} from 'configs/firebase';
 
 export default function Login() {
+  //firebase
   // async function onSubmit() {
   //   await auth.signInWithEmailAndPassword("email@email.com", "12345678");
   //   const token = await auth.currentUser.getIdToken(true);
   //   console.log(token)
   // }
 
-  const onSubmit = () => {
-    const login = api.post("/api/Token/pre_login", {
-      email: "email@email.com",
-      password: "12345678",
-    });
-    console.log(login)
-  }
+  const formFormik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    onSubmit: async (values) => {
+      // Tentar
+      LOADER ()
+      try {
+        const usuarioLogado = await api.post("/api/Token/pre_login", values);
+        if(usuarioLogadota )
+        Toast
+        redirecionar o cara pra home
+      } catch (error) {
+        redireciona pra home
+        da um erro no toast
+        console.log(error);
+      } finally { 
+        
+      }
+    },
+  });
 
   const [values, setValues] = React.useState({
     showPassword: false,
@@ -78,7 +98,7 @@ export default function Login() {
   const [rememberme, setRememberme] = useState(true);
 
   return (
-    <form>
+    <form onSubmit={formFormik.handleSubmit}>
       <>
         <Grid item container justify="center" xs={12}>
           {/* Background Verde */}
@@ -201,13 +221,11 @@ export default function Login() {
                   </Grid> */}
 
                 <FormControl fullWidth variant="outlined" margin="normal">
-                  <InputLabel htmlFor="outlined-adornment-amount">
-                    E-mail
-                  </InputLabel>
+                  <InputLabel htmlFor="email">E-mail</InputLabel>
                   <OutlinedInput
-                    id="outlined-adornment-amount"
+                    id="email"
                     value={values.amount}
-                    onChange={handleChange("amount")}
+                    onChange={(handleChange("amount"), formFormik.handleChange)}
                     startAdornment={
                       <InputAdornment position="start">
                         <EmailRounded color="primary" />
@@ -218,14 +236,14 @@ export default function Login() {
                 </FormControl>
 
                 <FormControl fullWidth variant="outlined" margin="normal">
-                  <InputLabel htmlFor="outlined-adornment-amount">
-                    Senha
-                  </InputLabel>
+                  <InputLabel htmlFor="password">Senha</InputLabel>
                   <OutlinedInput
-                    id="outlined-adornment-password"
+                    id="password"
                     type={values.showPassword ? "text" : "password"}
                     value={values.password}
-                    onChange={handleChange("password")}
+                    onChange={
+                      (handleChange("password"), formFormik.handleChange)
+                    }
                     startAdornment={
                       <InputAdornment position="start">
                         <Lock color="primary" />
@@ -299,9 +317,8 @@ export default function Login() {
                   color="primary"
                   size="large"
                   fullWidth
-                  type="button"
                   className="button-login"
-                  onClick={onSubmit}
+                  type="submit"
                 >
                   Entrar
                 </Button>
