@@ -81,20 +81,12 @@ body {
   }
 }
 
-.button-login span {
-  color: #FFF;
-}
-
 button span {
-  text-transform: capitalize;
+  text-transform: none;
 }
 
 a span {
   text-transform: none;
-}
-
-.check-icon label{
-  margin-right: 0;
 }
 
 .label{
@@ -107,4 +99,8 @@ a span {
   color: #FFF;
   font-size: 32px;
   font-weight: bold;
+}
+
+.description {
+  font-size: 8px;
 }
